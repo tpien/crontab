@@ -37,7 +37,7 @@ public class CrontabParser {
         }
     }
 
-    private String expandField(String input, int min, int max) throws CrontabInputException{
+    private String expandField(String input, int min, int max) {
         return selectStrategy(input).process(input, min, max);
     }
 
