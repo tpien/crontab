@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CrontabUnitTests {
 
-
     @Test
     public void parseCronTabValidIntervalEvery15() {
         String output = CrontabParserStrategy.processInterval().process("*/15", 0, 59);
