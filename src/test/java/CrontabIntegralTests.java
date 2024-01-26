@@ -1,8 +1,7 @@
-package tests;
 
-import exsceptions.CrontabInputException;
 import org.junit.jupiter.api.Test;
-import parser.CrontabParser;
+import ts.exsceptions.CrontabInputException;
+import ts.parser.CrontabParser;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -11,8 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CrontabIntegralTests {
-
-
     private void performTest(String input, String result) throws Exception {
         ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
@@ -96,7 +93,4 @@ public class CrontabIntegralTests {
             CrontabParser.getInstance().parseCronTab(input)
         );
     }
-
-
 }
-

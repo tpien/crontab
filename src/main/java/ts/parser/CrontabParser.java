@@ -1,6 +1,7 @@
-package parser;
+package ts.parser;
 
-import exsceptions.CrontabInputException;
+
+import ts.exsceptions.CrontabInputException;
 
 public class CrontabParser {
     private static CrontabParser instance;
@@ -14,20 +15,20 @@ public class CrontabParser {
         return instance;
     }
 
-
     public void parseCronTab(String input) throws Exception {
-
         String[] parts = input.split("\\s+",6);
         validateInputParts(parts);
-        System.out.printf("%-20s %s \n", "minute" , expandField(parts[0], 0, 59));
-        System.out.printf("%-20s %s \n", "hour" , expandField(parts[1], 0, 23));
-        System.out.printf("%-20s %s \n", "day of month" ,  expandField(parts[2], 1, 31));
-        System.out.printf("%-20s %s \n", "month" ,  expandField(parts[3], 1, 12));
-        System.out.printf("%-20s %s \n", "day of week" ,  expandField(parts[4], 0, 6));
-        System.out.printf("%-20s %s \n", "command" ,  parts[5]);
+
+        String pattern = "%-20s %s \n";
+        System.out.printf(pattern, "minute" , expandField(parts[0], 0, 59));
+        System.out.printf(pattern, "hour" , expandField(parts[1], 0, 23));
+        System.out.printf(pattern, "day of month" ,  expandField(parts[2], 1, 31));
+        System.out.printf(pattern, "month" ,  expandField(parts[3], 1, 12));
+        System.out.printf(pattern, "day of week" ,  expandField(parts[4], 0, 6));
+        System.out.printf(pattern, "command" ,  parts[5]);
     }
 
-    private void validateInputParts(String[] parts) throws CrontabInputException {
+    void validateInputParts(String[] parts) throws CrontabInputException {
         if (parts.length < 6) {
             throw new CrontabInputException("Invalid crontab format: Should consist 6 parts separated by white space");
         }
@@ -37,11 +38,11 @@ public class CrontabParser {
         }
     }
 
-    private String expandField(String input, int min, int max) {
+    String expandField(String input, int min, int max) {
         return selectStrategy(input).process(input, min, max);
     }
 
-    private CrontabParserStrategy selectStrategy(String input) {
+    CrontabParserStrategy selectStrategy(String input) {
         if (input.equals("*"))
             return CrontabParserStrategy.processAll();
 

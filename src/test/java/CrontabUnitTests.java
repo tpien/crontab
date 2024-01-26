@@ -1,7 +1,5 @@
-package tests;
-
 import org.junit.jupiter.api.Test;
-import parser.CrontabParserStrategy;
+import ts.parser.CrontabParserStrategy;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

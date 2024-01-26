@@ -2,15 +2,16 @@
 ![crontab_definition.png](crontab_definition.png)
 
 # Run from console
-Compile JDK 15+:
+Build JDK 15+, gradle:
 
-`cd src`
+Bash:
+./gradlew build
 
-`javac CrontabExpressionParser.java`
+Windows:
+gradlew.bat build
 
 Run example:
-
-`java CrontabExpressionParser "*/15 0 1,15 * 1-5 /usr/bin/find" `
+`java -jar build/libs/ts-crontab-1.0-SNAPSHOT.jar "*/15 0 1,15 * 1-5 /usr/bin/find"`
 
 Output:
 
@@ -19,3 +20,10 @@ Output:
 # Unit tests classes:
 - CrontabUnitTests
 - CrontabIntegralTests
+
+# Tests run
+Bash:
+`./gradlew test`
+
+Windows
+`gradlew.bat test`

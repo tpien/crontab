@@ -1,4 +1,4 @@
-package parser;
+package ts.parser;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -45,6 +45,4 @@ public interface CrontabParserStrategy {
     static CrontabParserStrategy processSingleValue() {
         return (input, min, max) -> input;
     }
-
-
 }
