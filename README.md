@@ -1,14 +1,14 @@
 # Contab format definition
 ![crontab_definition.png](crontab_definition.png)
 
-# Run from console
+# Run 
 Build JDK 15+, gradle:
 
 Bash:
-./gradlew build
+`./gradlew build`
 
 Windows:
-gradlew.bat build
+`gradlew.bat build`
 
 Run example:
 `java -jar build/libs/ts-crontab-1.0-SNAPSHOT.jar "*/15 0 1,15 * 1-5 /usr/bin/find"`
